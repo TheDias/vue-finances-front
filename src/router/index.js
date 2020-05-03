@@ -32,13 +32,7 @@ router.beforeEach(async (to, from, next) => {
     if (token) {
       try {
         await AuthService.user({
-          _fetchPolicy: 'network-only',
-          get fetchPolicy() {
-            return this._fetchPolicy
-          },
-          set fetchPolicy(value) {
-            this._fetchPolicy = value
-          },
+          fetchPolicy: 'network-only'
         })
         return next()
       } catch (error) {
