@@ -33,6 +33,7 @@ const authLink = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       ...headers,
+      // eslint-disable-next-line quote-props
       'Authorization': `Bearer ${window.localStorage.getItem(AUTH_TOKEN)}`
     }
   })
